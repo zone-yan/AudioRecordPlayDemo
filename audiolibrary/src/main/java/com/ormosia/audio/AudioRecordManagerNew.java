@@ -20,9 +20,9 @@ import java.io.File;
 public class AudioRecordManagerNew implements AudioRecordCallBack {
 
     private static final String TAG = "AudioRecordManagerNew";
-    private int RECORD_MAX_INTERVAL = 60;//录制最大时长
-    private int RECORD_MIN_INTERVAL = 3; //录制最小时长
-    private int COUNTDOWN_DURATION = 10;
+    private int RECORD_MAX_INTERVAL = 60;//录制最大时长 单位s
+    private int RECORD_MIN_INTERVAL = 3; //录制最小时长 单位s
+    private int COUNTDOWN_DURATION = 10; //倒计时时长 单位s
     private Context mContext;
     private Handler mHandler;
 
@@ -345,7 +345,7 @@ public class AudioRecordManagerNew implements AudioRecordCallBack {
             @Override
             public void run() {
                 if (isError || isWillCancel) {
-                    deleteAudioFile();
+                    deleteAudioFile(filePath);
                     isError = false;
                     isWillCancel = false;
                 } else {
@@ -359,7 +359,7 @@ public class AudioRecordManagerNew implements AudioRecordCallBack {
                             }
                         }, 500);
                         setAudioShortTipView();
-                        deleteAudioFile();
+                        deleteAudioFile(filePath);
                         return;
                     } else {
                         if (mIAudioRecordListener != null) {
@@ -380,10 +380,10 @@ public class AudioRecordManagerNew implements AudioRecordCallBack {
     /**
      * 删除文件
      */
-    private void deleteAudioFile() {
+    private void deleteAudioFile(String filePath) {
         Logger.d(TAG, "deleteAudioFile");
-        if (mAudioPath != null) {
-            File file = new File(mAudioPath);
+        if (!TextUtils.isEmpty(filePath)) {
+            File file = new File(filePath);
             if (file.exists()) {
                 file.delete();
             }

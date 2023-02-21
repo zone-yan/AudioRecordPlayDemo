@@ -1,9 +1,6 @@
 package com.ormosia.audio;
 
 /**
- * @author KevinSu kevinsu917@126.com
- * @version 创建时间：2014-5-28 上午10:24:47
- * @ClassName AudioRecordCallBack.java
  * @Description: 录音过程中的接口回调
  */
 

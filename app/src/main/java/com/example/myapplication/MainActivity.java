@@ -44,6 +44,16 @@ public class MainActivity extends AppCompatActivity {
             } else if (event.getAction() == MotionEvent.ACTION_CANCEL || event.getAction() == MotionEvent.ACTION_UP) {
                 mAudioRecordManagerNew.stopRecord();
                 return true;
+            } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                if (isCancelled(v, event)) {
+                    //准备取消录音
+                    mAudioRecordManagerNew.willCancelRecord();
+                } else {
+                    //继续录音
+                    mAudioRecordManagerNew.continueRecord();
+                }
+
+                return true;
             }
             return false;
         });
@@ -87,6 +97,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mAudioRecordManagerNew.releaseAudioRecorder();
+    }
+
     private void initRecord(){
         Log.e("ddd","initRecord");
         mAudioRecordManagerNew.setShowRootView(rl_root);
@@ -98,5 +114,16 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("ffffff", "录制成功" + "  audioPath==" +audioPath+ ", duration=="+ duration);
             }
         });
+    }
+
+    // 上滑取消录音判断
+    private boolean isCancelled(View view, MotionEvent event) {
+        int[] location = new int[2];
+        view.getLocationOnScreen(location);
+        if (event.getRawX() < location[0] || event.getRawX() > location[0] + view.getWidth()
+                || event.getRawY() < location[1] - 40) {
+            return true;
+        }
+        return false;
     }
 }

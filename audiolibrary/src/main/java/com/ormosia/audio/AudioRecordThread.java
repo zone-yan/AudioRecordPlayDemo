@@ -11,9 +11,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * @author KevinSu kevinsu917@126.com
- * @version 创建时间：2014-5-28 上午10:10:16
- * @ClassName AudioRecordThread.java
  * @Description: 音频转码的线程
  */
 
