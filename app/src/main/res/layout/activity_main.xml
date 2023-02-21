@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/sample_text"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/teal_200"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:layout_marginTop="100dp"
+        android:text="开始录音"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:id="@+id/play"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/purple_200"
+        android:layout_below="@id/sample_text"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:text="播放录音"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
