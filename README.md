@@ -25,4 +25,4 @@ public interface IAudioPlayListener {
 
 **注意**：项目中用到的libmp3lame.so库，使用时注意Mp3Lame.java文件的路径和文件名一定要跟代码中的一致，因为这是编译so库时写好的路径，如果想要更换路径和文件名，可以参考代码[使用lame编译音频mp3转换的so库](https://github.com/zone-yan/mp3lametest)
 
-[录音效果图](image/record.webp)
+![录音效果图](image/record.webp)
