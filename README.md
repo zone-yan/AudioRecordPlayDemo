@@ -3,7 +3,7 @@
 - 对于录制和播放进行了封装可以作为组件使用；
 - 长按进行录制，上滑可以取消录制，下滑又继续录制；上滑取消后不进行存储
 - 录制时间太短，不进行存储；录制时间将要超过最大录制时长时会有倒计时，倒计时结束后自动结束录制并存储；
-- 录制最短，最大时长，包括倒计时时长都需要自行配置，默认是
+- 录制最短，最大时长，包括倒计时时长都需要自行配置，默认是：
 ```
     private int RECORD_MAX_INTERVAL = 60;//录制最大时长 单位s
     private int RECORD_MIN_INTERVAL = 3; //录制最小时长 单位s
@@ -24,3 +24,5 @@ public interface IAudioPlayListener {
 ```
 
 **注意**：项目中用到的libmp3lame.so库，使用时注意Mp3Lame.java文件的路径和文件名一定要跟代码中的一致，因为这是编译so库时写好的路径，如果想要更换路径和文件名，可以参考代码[使用lame编译音频mp3转换的so库](https://github.com/zone-yan/mp3lametest)
+
+[录音效果图](image/record.webp)
